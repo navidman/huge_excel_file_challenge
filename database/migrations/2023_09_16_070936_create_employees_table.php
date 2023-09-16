@@ -13,18 +13,19 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('emp_id')->unique();
             $table->string('username')->nullable();
             $table->string('name_prefix')->nullable();
             $table->string('first_name')->nullable();
-            $table->string('middle_initial')->nullable();
+            $table->char('middle_initial', 1)->nullable();
             $table->string('last_name')->nullable();
-            $table->string('gender')->nullable();
+            $table->char('gender', 1)->nullable();
             $table->string('email')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->time('time_of_birth')->nullable();
-            $table->integer('age_in_years')->nullable();
+            $table->float('age_in_years', 5, 2)->nullable();
             $table->date('date_of_joining')->nullable();
-            $table->integer('age_in_company')->nullable();
+            $table->float('age_in_company', 5, 2)->nullable();
             $table->string('phone_no')->nullable();
             $table->string('place_name')->nullable();
             $table->string('country')->nullable();
