@@ -98,11 +98,10 @@ class EmployeesImport implements ToModel, SkipsOnFailure, WithChunkReading, With
     public function onFailure(Failure ...$failures)
     {
         foreach ($failures as $failure){
-
-            Log::info($failure->row());
-            Log::info($failure->attribute());
-            Log::info($failure->errors());
-            Log::info($failure->values());
+            Log::channel('import_failed')->error($failure->row());
+            Log::channel('import_failed')->error($failure->attribute());
+            Log::channel('import_failed')->error($failure->errors());
+            Log::channel('import_failed')->error($failure->values());
         }
     }
 

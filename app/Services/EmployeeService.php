@@ -10,11 +10,9 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class EmployeeService
 {
-    protected $employeeRepository;
-
-    public function __construct(EmployeeRepositoryInterface $employeeRepository)
+    public function __construct(protected EmployeeRepositoryInterface $employeeRepository)
     {
-        $this->employeeRepository = $employeeRepository;
+
     }
 
     public function importEmployees($file)

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Employee;
 
+use App\Exceptions\ImportFailedException;
 use App\Facades\EmployeeFacade;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Employee\ImportEmployeeRequest;
+use App\Http\Resources\EmployeeCollection;
+use App\Http\Resources\EmployeeResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -14,43 +17,28 @@ class EmployeeController extends Controller
     {
         try {
             EmployeeFacade::importEmployees($request->file('file'));
-            return response()->json('Your file is importing. The rows have errors will logged!', Response::HTTP_OK);
+            return response()->json('Your file is importing. The rows have errors will logged on import_failed channel!', Response::HTTP_OK);
         } catch (\Throwable $throwable) {
-            report($throwable);
-            return response()->json('Internal server error!', Response::HTTP_INTERNAL_SERVER_ERROR);
+            throw new ImportFailedException('File import failed.', Response::HTTP_INTERNAL_SERVER_ERROR, $throwable);
         }
     }
 
     public function index(Request $request)
     {
-        try {
-            $employees = EmployeeFacade::getAllEmployees($request);
-            return response()->json($employees, Response::HTTP_OK);
-        } catch (\Throwable $throwable) {
-            report($throwable);
-            return response()->json('Internal server error!', Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        $employees = EmployeeFacade::getAllEmployees($request);
+        return new EmployeeCollection($employees);
+
     }
 
     public function show($id)
     {
         $employee = EmployeeFacade::getEmployee($id);
-        try {
-            return response()->json($employee, Response::HTTP_OK);
-        } catch (\Throwable $throwable) {
-            report($throwable);
-            return response()->json('Internal server error!', Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        return new EmployeeResource($employee);
     }
 
     public function destroy($id)
     {
         EmployeeFacade::deleteEmployee($id);
-        try {
-            return response()->json('The employee successfully deleted!', Response::HTTP_OK);
-        } catch (\Throwable $throwable) {
-            report($throwable);
-            return response()->json('Internal server error!', Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+        return response()->json('The employee successfully deleted!', Response::HTTP_OK);
     }
 }

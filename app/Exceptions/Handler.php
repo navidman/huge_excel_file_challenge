@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -26,5 +27,15 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function report(Throwable $exception)
+    {
+        if ($exception instanceof ImportFailedException) {
+            Log::channel('import_failed')->error($exception->getMessage(), [
+                'trace' => $exception->getTraceAsString()
+            ]);
+        }
+        parent::report($exception);
     }
 }
