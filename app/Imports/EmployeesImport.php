@@ -64,7 +64,7 @@ class EmployeesImport implements ToModel, SkipsOnFailure, WithChunkReading, With
     {
         return [
             'emp_id' => ['required', 'numeric','unique:employees'],
-            'user_name' => ['required', 'string', 'min:3', 'max:50'],
+            'user_name' => ['required', 'string', 'min:3', 'max:50', 'unique:employees'],
             'name_prefix' => ['required', 'string', 'min:1', 'max:20'],
             'first_name' => ['required', 'string', 'min:1', 'max:50'],
             'middle_initial' => ['required', 'string', 'min:1', 'max:10'],
