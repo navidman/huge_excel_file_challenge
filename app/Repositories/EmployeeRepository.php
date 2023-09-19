@@ -16,7 +16,7 @@ class EmployeeRepository implements EmployeeRepositoryInterface
         return Employee::
             //Search
             when($request->filled('search'), function ($query) use ($request) {
-            $query->where('emp_id', 'LIKE', '%' . $request->search . '%')
+            $query->where('employee_id', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('username', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('first_name', 'LIKE', '%' . $request->search . '%')
                 ->orWhere('last_name', 'LIKE', '%' . $request->search . '%')

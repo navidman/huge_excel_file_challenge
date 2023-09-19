@@ -16,7 +16,7 @@ class EmployeeImportTest extends TestCase
     public function test_employees_can_be_imported()
     {
         Excel::fake();
-        dd($this->get('/employee/excel/csv'));
+        $this->get('/employee/excel/csv');
 //        $import = new EmployeesImport();
 //        $import->import('employee/excel/import.csv');
 
