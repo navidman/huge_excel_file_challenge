@@ -91,6 +91,177 @@ You can use the following command to view the list of APIs:
 ```shell
 make route
 ```
+And here is the list of APIs:
+### 1. api/employee POST
+```json
+parameters:
+    {
+        "file":    "csv or txt file"
+    }
+
+response:
+    {
+        "Your file is importing. The rows have errors will logged on import_failed channel!"
+    }
+```
+
+### 2. api/employee GET
+```json
+Response:
+    {
+    "data": [
+        {
+            "id": 6,
+            "employee_id": 198429,
+            "username": "sibumgarner",
+            "name_prefix": "Mrs.",
+            "first_name": "Serafina",
+            "middle_initial": "I",
+            "last_name": "Bumgarner",
+            "gender": "F",
+            "email": "serafina.bumgarner@exxonmobil.com",
+            "date_of_birth": "1982-09-21",
+            "time_of_birth": "01:53:14",
+            "age_in_years": 34.87,
+            "date_of_joining": "2008-02-01",
+            "age_in_company": 9.49,
+            "phone_no": "212-376-9125",
+            "place_name": "Clymer",
+            "country": "Chautauqua",
+            "city": "Clymer",
+            "zip": "14724",
+            "region": "Northeast",
+            "created_at": "2023-09-20T06:55:19.000000Z",
+            "updated_at": "2023-09-20T06:55:19.000000Z"
+        },
+        {
+            "id": 7,
+            "employee_id": 178566,
+            "username": "jmrojo",
+            "name_prefix": "Mrs.",
+            "first_name": "Juliette",
+            "middle_initial": "M",
+            "last_name": "Rojo",
+            "gender": "F",
+            "email": "juliette.rojo@yahoo.co.uk",
+            "date_of_birth": "1967-05-08",
+            "time_of_birth": "18:03:23",
+            "age_in_years": 50.26,
+            "date_of_joining": "2011-06-04",
+            "age_in_company": 6.15,
+            "phone_no": "215-254-9594",
+            "place_name": "Glenside",
+            "country": "Montgomery",
+            "city": "Glenside",
+            "zip": "19038",
+            "region": "Northeast",
+            "created_at": "2023-09-20T06:55:19.000000Z",
+            "updated_at": "2023-09-20T06:55:19.000000Z"
+        },
+        {
+            "id": 8,
+            "employee_id": 647173,
+            "username": "mfkrawczyk",
+            "name_prefix": "Mr.",
+            "first_name": "Milan",
+            "middle_initial": "F",
+            "last_name": "Krawczyk",
+            "gender": "M",
+            "email": "milan.krawczyk@hotmail.com",
+            "date_of_birth": "1980-04-04",
+            "time_of_birth": "07:07:22",
+            "age_in_years": 37.34,
+            "date_of_joining": "2012-01-19",
+            "age_in_company": 5.53,
+            "phone_no": "240-748-4111",
+            "place_name": "Gibson Island",
+            "country": "Anne Arundel",
+            "city": "Gibson Island",
+            "zip": "21056",
+            "region": "South",
+            "created_at": "2023-09-20T06:55:19.000000Z",
+            "updated_at": "2023-09-20T06:55:19.000000Z"
+        },
+    ],
+        "links": {
+            "self": "link-value",
+            "first": "http://127.0.0.1:9000/api/employee?page=1",
+            "last": "http://127.0.0.1:9000/api/employee?page=349",
+            "prev": null,
+            "next": "http://127.0.0.1:9000/api/employee?page=2"
+        },
+        "meta": {
+            "current_page": 1,
+            "from": 1,
+            "last_page": 349,
+            "links": [
+                {
+                    "url": null,
+                    "label": "&laquo; Previous",
+                    "active": false
+                },
+                {
+                    "url": "http://127.0.0.1:9000/api/employee?page=1",
+                    "label": "1",
+                    "active": true
+                },
+                {
+                    "url": "http://127.0.0.1:9000/api/employee?page=2",
+                    "label": "2",
+                    "active": false
+                },
+                {
+                    "url": "http://127.0.0.1:9000/api/employee?page=2",
+                    "label": "Next &raquo;",
+                    "active": false
+                }
+        ],
+        "path": "http://127.0.0.1:9000/api/employee",
+        "per_page": 20,
+        "to": 20,
+        "total": 6965
+        }
+    }
+```
+
+### 3. api/employee/{id} Get
+```json
+Response:
+    {
+        "data": {
+            "id": 6,
+            "employee_id": 198429,
+            "username": "sibumgarner",
+            "name_prefix": "Mrs.",
+            "first_name": "Serafina",
+            "middle_initial": "I",
+            "last_name": "Bumgarner",
+            "gender": "F",
+            "email": "serafina.bumgarner@exxonmobil.com",
+            "date_of_birth": "1982-09-21",
+            "time_of_birth": "01:53:14",
+            "age_in_years": 34.87,
+            "date_of_joining": "2008-02-01",
+            "age_in_company": 9.49,
+            "phone_no": "212-376-9125",
+            "place_name": "Clymer",
+            "country": "Chautauqua",
+            "city": "Clymer",
+            "zip": "14724",
+            "region": "Northeast",
+            "created_at": "2023-09-20T06:55:19.000000Z",
+            "updated_at": "2023-09-20T06:55:19.000000Z"
+        }
+    }
+```
+
+### 8. api/employee/{id}  DELETE
+```json
+Response:
+{
+    "The employee successfully deleted!"
+}
+```
 ----------------
 
 ### :heavy_check_mark: Other commands
