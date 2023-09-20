@@ -34,7 +34,7 @@ class EmployeesImport implements ToModel, SkipsOnFailure, WithChunkReading, With
     {
         try {
             return new Employee([
-                'emp_id' => $row['emp_id'],
+                'employee_id' => $row['emp_id'],
                 'username' => $row['user_name'],
                 'name_prefix' => $row['name_prefix'],
                 'first_name' => $row['first_name'],
@@ -64,7 +64,7 @@ class EmployeesImport implements ToModel, SkipsOnFailure, WithChunkReading, With
     {
         return [
             'emp_id' => ['required', 'numeric','unique:employees,employee_id'],
-            'user_name' => ['required', 'string', 'min:3', 'max:50', 'unique:employees,username'],
+            'user_name' => ['required', 'string', 'min:3', 'max:50','unique:employees,username'],
             'name_prefix' => ['required', 'string', 'min:1', 'max:20'],
             'first_name' => ['required', 'string', 'min:1', 'max:50'],
             'middle_initial' => ['required', 'string', 'min:1', 'max:10'],
