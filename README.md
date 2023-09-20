@@ -28,8 +28,10 @@ make up
 ```shell
 make migrate
 ```
+You can visit the app from [127.0.0.1:9000](http://127.0.0.1:9000) link.
+Please check the APIs on postman.
 
-You can see the database from [127.0.0.1:5000](http://127.0.0.1:5000) link.
+You can visit the database from [127.0.0.1:5000](http://127.0.0.1:5000) link.
 - Username: root
 - Password: password
 
