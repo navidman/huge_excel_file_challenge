@@ -280,9 +280,7 @@ The complete list of commands to use when running the app:
 | make test          | Run `php artisan test` command on `localbrandx` container          |
 | make migrate       | Run `php artisan migrate` command on `localbrandx` container       |
 | make migrate-fresh | Run `php artisan migrate:fresh` command on `localbrandx` container |
-| make seed          | Run `php artisan test` command on `localbrandx` container          |
 | make mysql         | Go to `mysql` container's `bash`                                   |
-| make redis         | Go to `redis` container's `bash`                                   |
 | make env           | Show `.env` file from `localbrandx` container                      |
 | make route         | Show `route list` from `localbrandx` container                     |
 | make import-log    | Show `import_failed.log file` from `localbrandx` container         |

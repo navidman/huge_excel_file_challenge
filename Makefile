@@ -8,12 +8,8 @@ test:
 	docker exec -it localbrandx php artisan test
 migrate:
 	docker exec -it localbrandx php artisan migrate
-seed:
-	docker exec -it localbrandx php artisan db:seed
 mysql:
 	docker exec -it mysql mysql -u root -ppassword
-redis:
-	docker exec -it redis redis-cli
 env:
 	docker exec -it localbrandx cat .env
 route:
