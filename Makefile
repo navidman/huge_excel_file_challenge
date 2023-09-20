@@ -18,5 +18,3 @@ env:
 	docker exec -it localbrandx cat .env
 route:
 	docker exec -it localbrandx php artisan route:list --path=api
-queuework:
-	docker exec -it localbrandx php artisan queue:work
