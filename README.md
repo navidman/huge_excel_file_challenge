@@ -20,8 +20,8 @@ First of all I liked this challenge, found it interesting and had lots of fun do
 
 There are some key points to notice for importing huge files in databases. In my opinion the first challenge would be uploading huge files. I think in a real work task scenario we should have another service(rather than our import service) to handle the upload process.
 I mean before that user tries to import the file, the Frontend app can make a request to our upload service and upload the file there and receive the file address in response and then send this address to the import service to use for importing its data.  
-I believe this approach will help the performance of our import service and saves its resources for handling other requests. We can have our specific configurations in the upload server for example for request timeouts. 
-The second point tha we need to notice regards reading the file. We can't read the whole file at once because it may fill our Ram and even crash our app. So we need to read a part of the file(1000 rows for example) and do our process on it and then take care of the next part.
+I believe this approach will help the performance of our import service and saves its resources for handling other requests. We can have our specific configurations in the upload server(request timeouts for example). 
+The second point tha we need to point out regards reading the file. We can't read the whole file at once because it may over occupy our Ram and even crash our app. So we need to read a part of the file(1000 rows for example) and do our process on it and then take care of the next part.
 The other issue that we need to consider would be inserting data to database. I'm using jobs and queues and batch insert for importing data form csv file to database. 
 My approach for handling invalid data is ignoring rows with invalid data and keep importing rows with valid data and at the end, I'll log the errors with details in an import_failed channel. We can report these errors to our user, so he/she can fix them and try importing them again.
 
