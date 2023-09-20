@@ -16,19 +16,37 @@ class EmployeeImportTest extends TestCase
     public function test_employees_can_be_imported()
     {
         Excel::fake();
-        $this->get('/employee/excel/csv');
-//        $import = new EmployeesImport();
-//        $import->import('employee/excel/import.csv');
 
-        Excel::assertImported('employee/excel/import.csv', 'public');
+        $file = UploadedFile::fake()->create('import.csv', 1000, ['csv', 'txt']);
 
-        Excel::assertImported('employee/excel/import.csv', 'public', function(EmployeesImport $import) {
-            return true;
-        });
+        $response = (new EmployeesImport)->import($file);
 
-        // When passing the callback as 2nd param, the disk will be the default disk.
-        Excel::assertImported('employee/excel/import.csv', function(EmployeesImport $import) {
-            return true;
-        });
+        Excel::assertImported('import.csv', 'public');
+
+        // You can add more assertions based on your specific requirements
+        // For example, check if the records are inserted in the database
+        $this->assertDatabaseHas('employees', [
+            // Provide the attributes you expect to be in the database
+            "employee_id" => 198429,
+            "username" => "sibumgarner",
+            "name_prefix" => "Mrs.",
+            "first_name" => "Serafina",
+            "middle_initial" => "I",
+            "last_name" => "Bumgarner",
+            "gender" => "F",
+            "email" => "serafina.bumgarner@exxonmobil.com",
+            "date_of_birth" => "1982-09-21",
+            "time_of_birth" => "01:53:14",
+            "age_in_years" => 34.87,
+            "date_of_joining" => "2008-02-01",
+            "age_in_company" => 9.49,
+            "phone_no" => "212-376-9125",
+            "place_name" => "Clymer",
+            "country" => "Chautauqua",
+            "city" => "Clymer",
+            "zip" => "14724",
+            "region" => "Northeast",
+            // Add more attributes as needed
+        ]);
     }
 }
