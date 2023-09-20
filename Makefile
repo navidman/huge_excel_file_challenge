@@ -18,3 +18,7 @@ env:
 	docker exec -it localbrandx cat .env
 route:
 	docker exec -it localbrandx php artisan route:list --path=api
+import-log:
+	docker exec -it localbrandx cat storage/logs/import_failed.log
+migrate-fresh:
+	docker exec -it localbrandx php artisan migrate:fresh

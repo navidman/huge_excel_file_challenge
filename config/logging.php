@@ -127,7 +127,7 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
         'import_failed' => [
-            'driver' => 'daily',
+            'driver' => 'single',
             'path' => storage_path('logs/import_failed.log'),
             'level' => 'error',
             'days' => 14,
