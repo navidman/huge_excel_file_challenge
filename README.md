@@ -53,6 +53,10 @@ You can visit the database from [127.0.0.1:5000](http://127.0.0.1:5000) link.
 - Username: root
 - Password: password
 
+You can visit the import_failed logs by running this command:
+```shell
+make import-log
+```
 
 2. If you don't wish to use docker it's alright(I highly recommend using the first approach considering better user experience). Just clone the project or unzip the compressed file provided by email and follow these instructions:
 ```shell
@@ -268,18 +272,20 @@ Response:
 
 The complete list of commands to use when running the app:
 
-| Command      | Description                                                 |
-|--------------|-------------------------------------------------------------|
-| make up      | Create and start containers                                 |
-| make down    | Stop and remove resources                                   |
-| make build   | Build or rebuild services                                   |
-| make test    | Run `php artisan test` command on `arvancloud` container    |
-| make migrate | Run `php artisan migrate` command on `arvancloud` container |
-| make seed    | Run `php artisan test` command on `arvancloud` container    |
-| make mysql   | Go to `mysql` container's `bash`                            |
-| make redis   | Go to `redis` container's `bash`                            |
-| make env     | Show `.env` file from `arvancloud` container                |
-| make route   | Show `route list` from `arvancloud` container               |
+| Command            | Description                                                        |
+|--------------------|--------------------------------------------------------------------|
+| make up            | Create and start containers                                        |
+| make down          | Stop and remove resources                                          |
+| make build         | Build or rebuild services                                          |
+| make test          | Run `php artisan test` command on `localbrandx` container          |
+| make migrate       | Run `php artisan migrate` command on `localbrandx` container       |
+| make migrate-fresh | Run `php artisan migrate:fresh` command on `localbrandx` container |
+| make seed          | Run `php artisan test` command on `localbrandx` container          |
+| make mysql         | Go to `mysql` container's `bash`                                   |
+| make redis         | Go to `redis` container's `bash`                                   |
+| make env           | Show `.env` file from `localbrandx` container                      |
+| make route         | Show `route list` from `localbrandx` container                     |
+| make import-log    | Show `import_failed.log file` from `localbrandx` container         |
 
 ----------------
 
