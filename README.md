@@ -14,7 +14,7 @@
 
 ### :arrow_down: Installation guide
 
-Enter the following commands in your terminal:
+1. Enter the following commands in your terminal:
 
 ```shell
 git clone https://github.com/navidman/huge_excel_file_challenge.git
@@ -35,6 +35,35 @@ You can visit the database from [127.0.0.1:5000](http://127.0.0.1:5000) link.
 - Username: root
 - Password: password
 
+
+2. If you don't wish to use docker it's alright(I highly recommend using the first approach considering better user experience). Just clone the project or unzip the compressed file provided by email and follow these instructions:
+```shell
+cp .env.example .env
+```
+
+Please make a database for the app and edit the database configurations in your .env based on your MySQL configs.
+
+```shell
+composer install
+```
+```shell
+php artisan migrate
+```
+```shell
+php artisan key:generate
+```
+```shell
+php artisan optimize
+```
+```shell
+php artisan serve
+```
+```shell
+php artisan queue:work
+```
+
+
+
 ----------------
 
 ### :book: List of APIs
@@ -48,7 +77,7 @@ make route
 
 ### :heavy_check_mark: Other commands
 
-Complete list of commands to use when running the program:
+The complete list of commands to use when running the app:
 
 | Command      | Description                                                 |
 |--------------|-------------------------------------------------------------|
