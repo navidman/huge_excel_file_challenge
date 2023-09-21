@@ -26,7 +26,7 @@ The other issue that we need to consider would be inserting data to database. I'
 My approach for handling invalid data is ignoring rows with invalid data and keep importing rows with valid data and at the end, I'll log the errors with details in an import_failed channel. We can report these errors to our user, so he/she can fix them and try importing them again.
 
 If it was a real project I would use an authentication system for my APIs(JWT for example) and also use an authorization system to authorise user permissions and accesses(Laravel Policies for example). 
-I implemented some e2e tests for APIs and a unit test for testing the import process.
+I implemented some e2e tests for APIs, please feel free to run them.
 
 ----------------
 
@@ -58,7 +58,7 @@ You can visit the import_failed logs by running this command:
 make import-log
 ```
 
-2. If you don't wish to use docker it's alright(I highly recommend using the first approach considering better user experience). Just clone the project or unzip the compressed file provided by email and follow these instructions:
+2. If you don't wish to use docker it's alright. Just clone the project or unzip the compressed file provided by email and follow these instructions:
 ```shell
 cp .env.example .env
 ```
@@ -83,8 +83,10 @@ php artisan serve
 ```shell
 php artisan queue:work
 ```
-
-
+You can run the tests by running this command:
+```shell
+php artisan test
+```
 
 ----------------
 
