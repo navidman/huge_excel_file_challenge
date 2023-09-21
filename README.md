@@ -74,7 +74,7 @@ DB_PASSWORD=password
 Please make a database for the app and edit the database configurations in your .env based on your MySQL configs.
 
 ```shell
-composer install
+composer install --ignore-platform-reqs
 ```
 ```shell
 php artisan migrate
