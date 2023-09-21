@@ -32,7 +32,7 @@ I implemented some e2e tests for APIs, please feel free to run them.
 
 ### :arrow_down: Installation guide
 
-1. Enter the following commands in your terminal:
+1. Enter the following commands in your terminal(the `make up` command may take some time first time):
 
 ```shell
 git clone https://github.com/navidman/huge_excel_file_challenge.git
