@@ -62,6 +62,14 @@ make import-log
 ```shell
 cp .env.example .env
 ```
+database configs that already set in .env:
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=localbrandx
+DB_USERNAME=root
+DB_PASSWORD=password
 
 Please make a database for the app and edit the database configurations in your .env based on your MySQL configs.
 
